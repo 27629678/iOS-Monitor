@@ -8,6 +8,7 @@
 
 #include "sysmonitor.h"
 
+#include <time.h>
 #include <mach/task.h>
 #include <mach/vm_map.h>
 #include <mach/mach_init.h>
@@ -22,6 +23,7 @@ get_cpu_usage()
     mach_msg_type_number_t count;
     thread_basic_info_t basic_thread_info;
     
+    clock_t start = clock();
     if (task_threads(mach_task_self(), &threads, &count) == KERN_SUCCESS) {
         mach_msg_type_number_t thread_info_count = THREAD_INFO_MAX;
         for (int idx = 0; idx < count; idx ++) {
@@ -41,6 +43,8 @@ get_cpu_usage()
         
         vm_deallocate(mach_task_self(), (vm_address_t)threads, count * sizeof(thread_t));
     }
+    
+    printf("used %lu cpu time.\n", clock() - start);
     
     return ratio;
 }
