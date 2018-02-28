@@ -13,6 +13,7 @@
 		DA036509204541E90051771D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA036508204541E90051771D /* Assets.xcassets */; };
 		DA03650C204541E90051771D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA03650A204541E90051771D /* LaunchScreen.storyboard */; };
 		DA03650F204541E90051771D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA03650E204541E90051771D /* main.m */; };
+		DA036517204638BF0051771D /* sysmonitor.c in Sources */ = {isa = PBXBuildFile; fileRef = DA036515204638BF0051771D /* sysmonitor.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		DA03650B204541E90051771D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA03650D204541E90051771D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA03650E204541E90051771D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA036515204638BF0051771D /* sysmonitor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sysmonitor.c; sourceTree = "<group>"; };
+		DA036516204638BF0051771D /* sysmonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sysmonitor.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				DA03650A204541E90051771D /* LaunchScreen.storyboard */,
 				DA03650D204541E90051771D /* Info.plist */,
 				DA03650E204541E90051771D /* main.m */,
+				DA036515204638BF0051771D /* sysmonitor.c */,
+				DA036516204638BF0051771D /* sysmonitor.h */,
 			);
 			path = "iOS-Monitor";
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA036517204638BF0051771D /* sysmonitor.c in Sources */,
 				DA036504204541E90051771D /* ViewController.m in Sources */,
 				DA03650F204541E90051771D /* main.m in Sources */,
 				DA036501204541E90051771D /* AppDelegate.m in Sources */,
