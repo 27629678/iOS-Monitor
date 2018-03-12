@@ -18,6 +18,7 @@
 		DA97CD75205670B800487125 /* HWCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD72205670B800487125 /* HWCircleView.m */; };
 		DA97CD76205670B800487125 /* HWWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD74205670B800487125 /* HWWaveView.m */; };
 		DA97CD792056739600487125 /* NEMonitorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD782056739600487125 /* NEMonitorWindow.m */; };
+		DA97CD7C2056761B00487125 /* NEMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD7B2056761B00487125 /* NEMonitorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		DA97CD74205670B800487125 /* HWWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWWaveView.m; sourceTree = "<group>"; };
 		DA97CD772056739600487125 /* NEMonitorWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEMonitorWindow.h; sourceTree = "<group>"; };
 		DA97CD782056739600487125 /* NEMonitorWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEMonitorWindow.m; sourceTree = "<group>"; };
+		DA97CD7A2056761B00487125 /* NEMonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEMonitorViewController.h; sourceTree = "<group>"; };
+		DA97CD7B2056761B00487125 /* NEMonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEMonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				DA97CD6E2056533800487125 /* NEMonitor.m */,
 				DA97CD772056739600487125 /* NEMonitorWindow.h */,
 				DA97CD782056739600487125 /* NEMonitorWindow.m */,
+				DA97CD7A2056761B00487125 /* NEMonitorViewController.h */,
+				DA97CD7B2056761B00487125 /* NEMonitorViewController.m */,
 			);
 			path = "iOS-Monitor";
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA036517204638BF0051771D /* sysmonitor.c in Sources */,
+				DA97CD7C2056761B00487125 /* NEMonitorViewController.m in Sources */,
 				DA036504204541E90051771D /* ViewController.m in Sources */,
 				DA97CD76205670B800487125 /* HWWaveView.m in Sources */,
 				DA03650F204541E90051771D /* main.m in Sources */,
