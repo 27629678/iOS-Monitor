@@ -15,6 +15,9 @@
 		DA03650F204541E90051771D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA03650E204541E90051771D /* main.m */; };
 		DA036517204638BF0051771D /* sysmonitor.c in Sources */ = {isa = PBXBuildFile; fileRef = DA036515204638BF0051771D /* sysmonitor.c */; };
 		DA97CD6F2056533800487125 /* NEMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD6E2056533800487125 /* NEMonitor.m */; };
+		DA97CD75205670B800487125 /* HWCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD72205670B800487125 /* HWCircleView.m */; };
+		DA97CD76205670B800487125 /* HWWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD74205670B800487125 /* HWWaveView.m */; };
+		DA97CD792056739600487125 /* NEMonitorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD782056739600487125 /* NEMonitorWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,12 @@
 		DA036516204638BF0051771D /* sysmonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sysmonitor.h; sourceTree = "<group>"; };
 		DA97CD6D2056533800487125 /* NEMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEMonitor.h; sourceTree = "<group>"; };
 		DA97CD6E2056533800487125 /* NEMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEMonitor.m; sourceTree = "<group>"; };
+		DA97CD71205670B800487125 /* HWCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCircleView.h; sourceTree = "<group>"; };
+		DA97CD72205670B800487125 /* HWCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCircleView.m; sourceTree = "<group>"; };
+		DA97CD73205670B800487125 /* HWWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWWaveView.h; sourceTree = "<group>"; };
+		DA97CD74205670B800487125 /* HWWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWWaveView.m; sourceTree = "<group>"; };
+		DA97CD772056739600487125 /* NEMonitorWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEMonitorWindow.h; sourceTree = "<group>"; };
+		DA97CD782056739600487125 /* NEMonitorWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEMonitorWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +73,7 @@
 		DA0364FE204541E90051771D /* iOS-Monitor */ = {
 			isa = PBXGroup;
 			children = (
+				DA97CD70205670B800487125 /* HKProgressView */,
 				DA0364FF204541E90051771D /* AppDelegate.h */,
 				DA036500204541E90051771D /* AppDelegate.m */,
 				DA036502204541E90051771D /* ViewController.h */,
@@ -77,8 +87,21 @@
 				DA036516204638BF0051771D /* sysmonitor.h */,
 				DA97CD6D2056533800487125 /* NEMonitor.h */,
 				DA97CD6E2056533800487125 /* NEMonitor.m */,
+				DA97CD772056739600487125 /* NEMonitorWindow.h */,
+				DA97CD782056739600487125 /* NEMonitorWindow.m */,
 			);
 			path = "iOS-Monitor";
+			sourceTree = "<group>";
+		};
+		DA97CD70205670B800487125 /* HKProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				DA97CD71205670B800487125 /* HWCircleView.h */,
+				DA97CD72205670B800487125 /* HWCircleView.m */,
+				DA97CD73205670B800487125 /* HWWaveView.h */,
+				DA97CD74205670B800487125 /* HWWaveView.m */,
+			);
+			path = HKProgressView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,9 +177,12 @@
 			files = (
 				DA036517204638BF0051771D /* sysmonitor.c in Sources */,
 				DA036504204541E90051771D /* ViewController.m in Sources */,
+				DA97CD76205670B800487125 /* HWWaveView.m in Sources */,
 				DA03650F204541E90051771D /* main.m in Sources */,
+				DA97CD75205670B800487125 /* HWCircleView.m in Sources */,
 				DA036501204541E90051771D /* AppDelegate.m in Sources */,
 				DA97CD6F2056533800487125 /* NEMonitor.m in Sources */,
+				DA97CD792056739600487125 /* NEMonitorWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
