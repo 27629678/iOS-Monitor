@@ -10,4 +10,6 @@
 
 @interface NEMonitorViewController : UIViewController
 
+- (BOOL)canHandleTouchPoint:(CGPoint)point event:(UIEvent *)event;
+
 @end

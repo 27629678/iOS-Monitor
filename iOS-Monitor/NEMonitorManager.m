@@ -55,18 +55,27 @@
 {
     if (!_monitorWindow) {
         _monitorWindow = [[NEMonitorWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        _monitorWindow.rootViewController = [[NEMonitorViewController alloc] init];
+        _monitorWindow.rootViewController = self.viewController;
         _monitorWindow.delegate = self;
     }
     
     return _monitorWindow;
 }
 
+- (NEMonitorViewController *)viewController
+{
+    if (!_viewController) {
+        _viewController = [NEMonitorViewController new];
+    }
+    
+    return _viewController;
+}
+
 #pragma mark - delegate
 
 - (BOOL)canHandleTouchPoint:(CGPoint)point event:(UIEvent *)event
 {
-    return NO;
+    return [self.viewController canHandleTouchPoint:point event:event];
 }
 
 @end

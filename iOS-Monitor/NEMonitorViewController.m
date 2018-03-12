@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UILabel *fps_label;
 @property (nonatomic, strong) HWWaveView *wave;
 @property (nonatomic, strong) HWCircleView *circle;
+@property (nonatomic, strong) UIPanGestureRecognizer *gesture;
 
 @end
 
@@ -30,6 +31,29 @@
     
     [self.view setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:self.monitorView];
+    [self.view addGestureRecognizer:self.gesture];
+}
+
+- (BOOL)canHandleTouchPoint:(CGPoint)point event:(UIEvent *)event
+{
+    CGPoint pointInLocalCoordinates = [self.view convertPoint:point fromView:nil];
+    
+    return CGRectContainsPoint(self.monitorView.frame, pointInLocalCoordinates);
+}
+
+#pragma mark - pan gesture
+
+- (void)handlePanGesture:(UIGestureRecognizer *)sender
+{
+    if (sender.state != UIGestureRecognizerStateChanged) {
+        return;
+    }
+    
+    CGRect frame = self.monitorView.frame;
+    CGPoint locate = [sender locationInView:self.view];
+    frame.origin.x = locate.x - 30;
+    frame.origin.y = locate.y - 30;
+    self.monitorView.frame = frame;
 }
 
 #pragma mark - monitor view
@@ -77,6 +101,15 @@
     }
     
     return _fps_label;
+}
+
+- (UIPanGestureRecognizer *)gesture
+{
+    if (!_gesture) {
+        _gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+    }
+    
+    return _gesture;
 }
 
 @end

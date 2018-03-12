@@ -28,7 +28,12 @@
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
-    return [self.delegate canHandleTouchPoint:point event:event];
+    BOOL canHandle = NO;
+    if ([self.delegate canHandleTouchPoint:point event:event]) {
+        canHandle = [super pointInside:point withEvent:event];
+    }
+    
+    return canHandle;
 }
 
 @end
