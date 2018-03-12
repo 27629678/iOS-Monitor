@@ -14,6 +14,7 @@
 		DA03650C204541E90051771D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA03650A204541E90051771D /* LaunchScreen.storyboard */; };
 		DA03650F204541E90051771D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA03650E204541E90051771D /* main.m */; };
 		DA036517204638BF0051771D /* sysmonitor.c in Sources */ = {isa = PBXBuildFile; fileRef = DA036515204638BF0051771D /* sysmonitor.c */; };
+		DA97CD6F2056533800487125 /* NEMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD6E2056533800487125 /* NEMonitor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		DA03650E204541E90051771D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA036515204638BF0051771D /* sysmonitor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sysmonitor.c; sourceTree = "<group>"; };
 		DA036516204638BF0051771D /* sysmonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sysmonitor.h; sourceTree = "<group>"; };
+		DA97CD6D2056533800487125 /* NEMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEMonitor.h; sourceTree = "<group>"; };
+		DA97CD6E2056533800487125 /* NEMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEMonitor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				DA03650E204541E90051771D /* main.m */,
 				DA036515204638BF0051771D /* sysmonitor.c */,
 				DA036516204638BF0051771D /* sysmonitor.h */,
+				DA97CD6D2056533800487125 /* NEMonitor.h */,
+				DA97CD6E2056533800487125 /* NEMonitor.m */,
 			);
 			path = "iOS-Monitor";
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				DA036504204541E90051771D /* ViewController.m in Sources */,
 				DA03650F204541E90051771D /* main.m in Sources */,
 				DA036501204541E90051771D /* AppDelegate.m in Sources */,
+				DA97CD6F2056533800487125 /* NEMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

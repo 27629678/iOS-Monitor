@@ -8,11 +8,14 @@
 
 #import "ViewController.h"
 
-#import "sysmonitor.h"
+#import "NEMonitor.h"
 
-@interface ViewController ()
+#define kBytesPerMB (1024 * 1024)
+
+@interface ViewController () <NEMonitorDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *cpu_usage;
 @property (weak, nonatomic) IBOutlet UILabel *memory_usage;
+@property (weak, nonatomic) IBOutlet UILabel *frame_per_second;
 @property (weak, nonatomic) IBOutlet UISwitch *loop_switch;
 
 @end
@@ -26,13 +29,14 @@
     [self.loop_switch addTarget:self
                          action:@selector(start_infinite_loop:)
                forControlEvents:UIControlEventValueChanged];
+    [[NEMonitor monitor] setDelegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [self print_cpu_usage];
+    [[NEMonitor monitor] start];
 }
 
 #pragma mark - private
@@ -53,17 +57,23 @@
     });
 }
 
-- (void)print_cpu_usage
+#pragma mark - delegate
+
+- (void)monitor:(NEMonitor *)monitor didUpdateFPS:(NSInteger)fps
 {
-    double cpu = get_cpu_usage() * 100;
-    self.cpu_usage.text = [NSString stringWithFormat:@"%.2f%%", cpu];
-    
-    long long kBytesPerMB = 1024 * 1024;
-    long long memory = get_memory_usage() * 1.0f / kBytesPerMB;
+    self.frame_per_second.text = [NSString stringWithFormat:@"%@", @(fps)];
+}
+
+- (void)monitor:(NEMonitor *)monitor didUpdateCPU:(double)usage
+{
+    self.cpu_usage.text = [NSString stringWithFormat:@"%.2f%%", usage * 100];
+}
+
+- (void)monitor:(NEMonitor *)monitor didUpdateMemory:(double)usage
+{
+    long long memory = usage / kBytesPerMB;
     self.memory_usage.text = [NSString stringWithFormat:@"%.2lld MB of %lld MB", memory,
-                               [[NSProcessInfo processInfo] physicalMemory] / kBytesPerMB];
-    
-    [self performSelector:@selector(print_cpu_usage) withObject:nil afterDelay:1];
+                              [[NSProcessInfo processInfo] physicalMemory] / kBytesPerMB];
 }
 
 
