@@ -13,4 +13,6 @@
 
 extern double get_cpu_usage(void);
 
+extern long long get_memory_usage(void);
+
 #endif /* sysmonitor_h */

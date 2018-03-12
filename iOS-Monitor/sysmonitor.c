@@ -48,3 +48,20 @@ get_cpu_usage()
     
     return ratio;
 }
+
+extern
+long long get_memory_usage()
+{
+    struct mach_task_basic_info basic_info;
+    mach_msg_type_number_t count = sizeof(basic_info) / sizeof(integer_t);
+    
+    kern_return_t status =task_info(mach_task_self(),
+                                    MACH_TASK_BASIC_INFO,
+                                    (task_info_t)&basic_info,
+                                    &count);
+    if (KERN_SUCCESS == status) {
+        return basic_info.resident_size_max;
+    }
+    
+    return 0;
+}
