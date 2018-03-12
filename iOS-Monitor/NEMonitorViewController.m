@@ -10,10 +10,11 @@
 
 #import "HWWaveView.h"
 #import "HWCircleView.h"
+#import "NEMonitor.h"
 
 #define kBytesPerMB (1024 * 1024)
 
-@interface NEMonitorViewController ()
+@interface NEMonitorViewController () <NEMonitorDelegate>
 
 @property (nonatomic, strong) UIView *monitorView;
 @property (nonatomic, strong) UILabel *fps_label;
@@ -29,9 +30,17 @@
 {
     [super viewDidLoad];
     
+    [[NEMonitor monitor] setDelegate:self];
     [self.view setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:self.monitorView];
     [self.view addGestureRecognizer:self.gesture];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [[NEMonitor monitor] start];
 }
 
 - (BOOL)canHandleTouchPoint:(CGPoint)point event:(UIEvent *)event
@@ -56,7 +65,24 @@
     self.monitorView.frame = frame;
 }
 
-#pragma mark - monitor view
+#pragma mark - delegate
+
+- (void)monitor:(NEMonitor *)monitor didUpdateFPS:(NSInteger)fps
+{
+    self.fps_label.text = [NSString stringWithFormat:@"%@", @(fps)];
+}
+
+- (void)monitor:(NEMonitor *)monitor didUpdateCPU:(double)usage
+{
+    self.circle.progress = usage;
+}
+
+- (void)monitor:(NEMonitor *)monitor didUpdateMemory:(double)usage
+{
+    self.wave.progress = usage / (400 * kBytesPerMB);
+}
+
+#pragma mark - getter
 
 - (UIView *)monitorView
 {
