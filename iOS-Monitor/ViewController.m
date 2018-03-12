@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+#import "NEMonitorManager.h"
 #import "NEMonitorViewController.h"
 
 @interface ViewController ()
@@ -27,6 +28,13 @@
                forControlEvents:UIControlEventValueChanged];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [NEMonitorManager showMonitorWindow];
+}
+
 #pragma mark - private
 
 - (void)start_infinite_loop:(UISwitch *)sender
@@ -34,9 +42,6 @@
     if (!sender.isOn) {
         return;
     }
-    
-    NEMonitorViewController *vc = [[NEMonitorViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

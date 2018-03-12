@@ -19,6 +19,7 @@
 		DA97CD76205670B800487125 /* HWWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD74205670B800487125 /* HWWaveView.m */; };
 		DA97CD792056739600487125 /* NEMonitorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD782056739600487125 /* NEMonitorWindow.m */; };
 		DA97CD7C2056761B00487125 /* NEMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD7B2056761B00487125 /* NEMonitorViewController.m */; };
+		DA97CD7F20567A4100487125 /* NEMonitorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA97CD7E20567A4100487125 /* NEMonitorManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		DA97CD782056739600487125 /* NEMonitorWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEMonitorWindow.m; sourceTree = "<group>"; };
 		DA97CD7A2056761B00487125 /* NEMonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEMonitorViewController.h; sourceTree = "<group>"; };
 		DA97CD7B2056761B00487125 /* NEMonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEMonitorViewController.m; sourceTree = "<group>"; };
+		DA97CD7D20567A4100487125 /* NEMonitorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEMonitorManager.h; sourceTree = "<group>"; };
+		DA97CD7E20567A4100487125 /* NEMonitorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEMonitorManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				DA97CD782056739600487125 /* NEMonitorWindow.m */,
 				DA97CD7A2056761B00487125 /* NEMonitorViewController.h */,
 				DA97CD7B2056761B00487125 /* NEMonitorViewController.m */,
+				DA97CD7D20567A4100487125 /* NEMonitorManager.h */,
+				DA97CD7E20567A4100487125 /* NEMonitorManager.m */,
 			);
 			path = "iOS-Monitor";
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				DA03650F204541E90051771D /* main.m in Sources */,
 				DA97CD75205670B800487125 /* HWCircleView.m in Sources */,
 				DA036501204541E90051771D /* AppDelegate.m in Sources */,
+				DA97CD7F20567A4100487125 /* NEMonitorManager.m in Sources */,
 				DA97CD6F2056533800487125 /* NEMonitor.m in Sources */,
 				DA97CD792056739600487125 /* NEMonitorWindow.m in Sources */,
 			);

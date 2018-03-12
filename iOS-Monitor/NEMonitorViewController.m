@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:self.monitorView];
 }
 

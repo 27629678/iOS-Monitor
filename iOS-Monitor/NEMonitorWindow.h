@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol NEMonitorEventDelegate <NSObject>
+
+- (BOOL)canHandleTouchPoint:(CGPoint)point event:(UIEvent *)event;
+
+@end
+
 @interface NEMonitorWindow : UIWindow
 
-+ (void)show;
-
-+ (void)hide;
+@property (nonatomic, weak) id<NEMonitorEventDelegate> delegate;
 
 @end
