@@ -22,15 +22,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.loop_switch setOn:NO];
+    [self.loop_switch setOn:YES];
     [self.loop_switch addTarget:self
                          action:@selector(start_infinite_loop:)
                forControlEvents:UIControlEventValueChanged];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
     [NEMonitorManager showMonitorWindow];
 }
@@ -39,18 +39,7 @@
 
 - (void)start_infinite_loop:(UISwitch *)sender
 {
-    if (!sender.isOn) {
-        return;
-    }
-    
-    __weak __typeof(self) weakself = self;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        for (; ;) {
-            if (!weakself.loop_switch.isOn) {
-                break;
-            }
-        }
-    });
+    sender.isOn ? [NEMonitorManager showMonitorWindow] : [NEMonitorManager hideMonitorWindow];
 }
 
 @end
