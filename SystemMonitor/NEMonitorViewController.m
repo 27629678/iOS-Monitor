@@ -43,7 +43,13 @@
     
     CGRect frame = self.monitorView.frame;
     frame.origin.x = self.view.frame.size.width - frame.size.width;
-    frame.origin.y = self.view.frame.size.height - frame.size.height;
+    
+    if (@available(iOS 11.0, *)) {
+        CGFloat off_set = [[[UIApplication sharedApplication] keyWindow] safeAreaInsets].top;
+        if (off_set > 1) {
+            frame.origin.y = off_set + 44;
+        }
+    }
     self.monitorView.frame = frame;
 }
 
@@ -100,7 +106,7 @@
 
 - (void)monitor:(NEMonitor *)monitor didUpdateMemory:(double)usage
 {
-    self.wave.progress = usage / (400 * kBytesPerMB);
+    self.wave.progress = usage / (500 * kBytesPerMB);
 }
 
 #pragma mark - getter

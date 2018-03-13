@@ -57,7 +57,7 @@ long long get_memory_usage()
                                     (task_info_t)&basic_info,
                                     &count);
     if (KERN_SUCCESS == status) {
-        return basic_info.resident_size_max;
+        return basic_info.resident_size;
     }
     
     return 0;
