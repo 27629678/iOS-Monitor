@@ -55,6 +55,10 @@
 
 - (void)startMonitorUsingOption:(NEMonitorOption)option
 {
+    if (self.isMonitorRunning) {
+        return;
+    }
+    
     self.option = option;
     self.isMonitorRunning = YES;
     [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];

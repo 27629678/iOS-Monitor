@@ -13,6 +13,7 @@
 #import "NEMonitor.h"
 
 #define kBytesPerMB (1024 * 1024)
+#define kMonitorWidth (60.f)
 
 @interface NEMonitorViewController () <NEMonitorDelegate>
 
@@ -34,6 +35,16 @@
     [self.view setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:self.monitorView];
     [self.view addGestureRecognizer:self.gesture];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    CGRect frame = self.monitorView.frame;
+    frame.origin.x = self.view.frame.size.width - frame.size.width;
+    frame.origin.y = self.view.frame.size.height - frame.size.height;
+    self.monitorView.frame = frame;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -60,8 +71,8 @@
     
     CGRect frame = self.monitorView.frame;
     CGPoint locate = [sender locationInView:self.view];
-    frame.origin.x = locate.x - 30;
-    frame.origin.y = locate.y - 30;
+    frame.origin.x = locate.x - [self defaultMonitorWidth]/2;
+    frame.origin.y = locate.y - [self defaultMonitorWidth]/2;
     self.monitorView.frame = frame;
 }
 
@@ -69,6 +80,16 @@
 
 - (void)monitor:(NEMonitor *)monitor didUpdateFPS:(NSInteger)fps
 {
+    CGFloat hue = 100;
+    if (fps < 20) {
+        hue = 0;
+    }
+    else if (fps < 40) {
+        hue = 50;
+    }
+    
+    self.fps_label.textColor =
+    [UIColor colorWithHue:hue/360 saturation:1 brightness:.5 alpha:.8];
     self.fps_label.text = [NSString stringWithFormat:@"%@", @(fps)];
 }
 
@@ -87,7 +108,9 @@
 - (UIView *)monitorView
 {
     if (!_monitorView) {
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 64, 60, 60)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 64,
+                                                                [self defaultMonitorWidth],
+                                                                [self defaultMonitorWidth])];
         [view addSubview:self.wave];
         [view addSubview:self.circle];
         [view addSubview:self.fps_label];
@@ -101,8 +124,9 @@
 - (HWWaveView *)wave
 {
     if (!_wave) {
-        _wave = [[HWWaveView alloc] initWithFrame:CGRectMake(2, 2, 56, 56)];
-        [_wave setProgress:.5f];
+        _wave = [[HWWaveView alloc] initWithFrame:CGRectMake(2, 2,
+                                                             [self defaultMonitorWidth]-4,
+                                                             [self defaultMonitorWidth]-4)];
     }
     
     return _wave;
@@ -111,8 +135,9 @@
 - (HWCircleView *)circle
 {
     if (!_circle) {
-        _circle = [[HWCircleView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
-        [_circle setProgress:.8f];
+        _circle = [[HWCircleView alloc] initWithFrame:CGRectMake(0, 0,
+                                                                 [self defaultMonitorWidth],
+                                                                 [self defaultMonitorWidth])];
     }
     
     return _circle;
@@ -121,9 +146,11 @@
 - (UILabel *)fps_label
 {
     if (!_fps_label) {
-        _fps_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+        _fps_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0,
+                                                               [self defaultMonitorWidth],
+                                                               [self defaultMonitorWidth])];
+        [_fps_label setFont:[UIFont systemFontOfSize:12]];
         [_fps_label setTextAlignment:NSTextAlignmentCenter];
-        [_fps_label setText:@"60"];
     }
     
     return _fps_label;
@@ -136,6 +163,16 @@
     }
     
     return _gesture;
+}
+
+- (CGFloat)defaultMonitorWidth
+{
+    return [self widthForMonitorViewWithRatio:.5];
+}
+
+- (CGFloat)widthForMonitorViewWithRatio:(CGFloat)ratio;
+{
+    return kMonitorWidth * MAX(0, MIN(1, ratio));
 }
 
 @end

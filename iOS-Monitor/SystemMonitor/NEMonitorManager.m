@@ -39,7 +39,7 @@
 
 + (void)hideMonitorWindow
 {
-    
+    [[self defaultManager] hide];
 }
 
 #pragma mark - private
@@ -47,6 +47,11 @@
 - (void)show
 {
     [self.monitorWindow setHidden:NO];
+}
+
+- (void)hide
+{
+    [self.monitorWindow setHidden:YES];
 }
 
 #pragma mark - getter & setter
