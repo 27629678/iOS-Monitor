@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "NEMonitor-iOS"
-  s.version      = "1.0.0"
+  s.version      = "1.0.0.beta"
   s.summary      = "System Monitor Using Mach Kernel API."
 
   # This description is used to generate tags and improve search results.
